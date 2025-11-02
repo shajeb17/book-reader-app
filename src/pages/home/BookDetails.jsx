@@ -8,6 +8,7 @@ const BookDetails = () => {
     return data.bookId === bookid.state;
   });
   let {
+    bookId,
     bookName,
     author,
     category,
@@ -18,6 +19,20 @@ const BookDetails = () => {
     totalPages,
     yearOfPublishing,
   } = singelValue;
+
+  let readbook = (id) => {
+    let book = localStorage.getItem("BookList");
+    if (!book) {
+      localStorage.setItem("BookList", JSON.stringify([id]));
+    } else {
+      // let localCollect = JSON.parse(localStorage.getItem(book));
+      let localCollect = JSON.parse(book);
+      if (!localCollect.includes(id)) {
+        localCollect.push(id);
+      }
+      localStorage.setItem("BookList", JSON.stringify(localCollect));
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8 flex justify-center items-center">
@@ -100,7 +115,10 @@ const BookDetails = () => {
             </div>
 
             <div className="flex space-x-4 mt-auto">
-              <button className="flex-1 px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-semibold bg-white hover:bg-gray-50 transition-colors shadow-sm max-w-[150px]">
+              <button
+                className="flex-1 px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-semibold bg-white hover:bg-gray-50 transition-colors shadow-sm max-w-[150px]"
+                onClick={() => readbook(bookId)}
+              >
                 Read
               </button>
               <button className="flex-1 px-6 py-3 rounded-lg text-white font-semibold bg-blue-500 hover:bg-blue-600 transition-colors shadow-md max-w-[150px]">
