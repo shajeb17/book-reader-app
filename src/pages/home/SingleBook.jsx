@@ -1,10 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const SingleBook = ({ bookDel }) => {
-  let { bookName, author, category, image, rating, tags } = bookDel;
-
-  console.log(bookDel);
-
+  let { bookId,bookName, author, category, image, rating, tags } = bookDel;
+  
   return (
     <div className="w-full h-full bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 p-4">
       {/* Image */}
@@ -37,7 +36,7 @@ const SingleBook = ({ bookDel }) => {
       {/* Category and Rating */}
       <div className="flex justify-between items-center text-sm text-gray-700">
         <span>{category}</span>
-        <button className="btn btn-outline h-9 btn-secondary">More Details ...</button>
+       <Link to={"/bookdetails"} state={bookId}><button className="btn btn-outline h-9 btn-secondary">More Details ...</button></Link>
         <span className="flex items-center gap-1">
           {rating}
           <svg

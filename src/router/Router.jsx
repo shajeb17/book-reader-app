@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import BookList from "../pages/booklist/BookList";
 import PagesRead from "../pages/pageread/PagesRead";
 import { FadeLoader } from "react-spinners";
+import BookDetails from "../pages/home/BookDetails";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
     ,
     children: [
       { index: true, loader: () => fetch("booksData.json"), Component: Home },
+      {
+        path:"bookdetails",
+        loader:()=> fetch("booksData.json"),
+        Component:BookDetails,
+      },
       { path: "/booklist", Component: BookList },
       { path: "/PagesRead", Component: PagesRead },
     ],

@@ -4,7 +4,6 @@ import SingleBook from "./SingleBook";
 
 const Home = () => {
   let data = useLoaderData();
-  console.log(data);
 
   return (
     <div className="w-9/12 m-auto ">
