@@ -12,7 +12,7 @@ const BookList = () => {
   let [store, setStore] = useState("");
   useEffect(() => {
     let localSt = JSON.parse(localStorage.getItem("BookList"));
-    let valus = data.filter((all) => localSt.includes(all.bookId));
+    let valus = data?.filter((all) => localSt?.includes(all.bookId));
     setAddBook(valus);
   }, []);
 
@@ -28,7 +28,7 @@ const BookList = () => {
       setDataFilter(filterPage);
     }
   }, [store, dataAdd]);
-  console.log(dataFilter);
+
 
   return (
     <div className="w-9/13 m-auto">
@@ -57,7 +57,7 @@ const BookList = () => {
         </TabList>
 
         <TabPanel>
-          {dataFilter.map((data) => (
+          {dataFilter?.map((data) => (
             <ReadSingle key={data.bookId} data={data}></ReadSingle>
           ))}
         </TabPanel>
