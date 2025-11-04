@@ -14,6 +14,7 @@ const ReadSingle = ({data}) => {
     yearOfPublishing,
   } = data;
   return (
+ 
     <div className="bg-white rounded-xl shadow-lg p-5 flex flex-col md:flex-row items-center md:items-start gap-5 w-full max-w-2xl mx-auto">
       <div className="flex-shrink-0 w-32 h-48 md:w-28 md:h-40 flex items-center justify-center">
         <img
